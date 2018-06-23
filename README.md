@@ -1,27 +1,54 @@
-# MaterialNg
+# From YouTube video: Getting Started with Angular 6 Material (Tutorial)
+[![Getting Started with Angular 6 Material (Tutorial)](https://i.ytimg.com/vi/Fcr-gM-QThc/hqdefault.jpg)](http://www.youtube.com/watch?v=Fcr-gM-QThc)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+## Create project and setup to use Angular Material
 
-## Development server
+```$ ng new material-ng --routing --style=scss```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```$ npm i @angular/material @angular/cdk```
 
-## Code scaffolding
+```$ npm i @angular/animations```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```$ npm i hammerjs```
 
-## Build
+### *main.ts*
+```js
+import "hammerjs";
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### *app.module.ts*
+```js
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+```
 
-## Running unit tests
+... and add to imports
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### create *material.ts* in the *app* folder
+```js
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { NgModule } from '@angular/core';
 
-## Running end-to-end tests
+@NgModule({
+  imports: [MatButtonModule, MatCheckboxModule],
+  exports: [MatButtonModule, MatCheckboxModule],
+})
+export class MaterialModule {}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### *app.module.ts*
+```js
+import { MaterialModule } from './material';
+```
+... and add to imports
 
-## Further help
+### *styles.scss*
+```js
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+```
+### *index.html*
+```js
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+---
+
